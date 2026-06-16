@@ -40,28 +40,28 @@
  
             <ul class="contact-list">
                 <li class="contact-item">
-                    <div class="contact-icon">📞</div>
+                    <div class="contact-icon"><img src="/view/images/telephone 1.svg" alt="pictoTEL" style="width:30px; height:30px; object-fit:contain;"></div>
                     <div>
                         <div class="contact-label">Téléphone</div>
                         <div class="contact-value"><a href="tel:0473000000">04 73 00 00 00</a></div>
                     </div>
                 </li>
                 <li class="contact-item">
-                    <div class="contact-icon">🕐</div>
+                    <div class="contact-icon"><img src="/view/images/horloge 1.svg" alt="picto horloge" style="width:30px; height:30px; object-fit:contain;"></div>
                     <div>
                         <div class="contact-label">Horaire d'ouverture</div>
                         <div class="contact-value">Mer – Dim / 20h</div>
                     </div>
                 </li>
                 <li class="contact-item">
-                    <div class="contact-icon">✉️</div>
+                    <div class="contact-icon"><img src="/view/images/email 1.svg" alt="picto horloge" style="width:30px; height:30px; object-fit:contain;"></div>
                     <div>
                         <div class="contact-label">Contact</div>
                         <div class="contact-value"><a href="mailto:contact@gmail.com">contact@gmail.com</a></div>
                     </div>
                 </li>
                 <li class="contact-item">
-                    <div class="contact-icon">📍</div>
+                    <div class="contact-icon"><img src="/view/images/localisation 1.svg" alt="picto horloge" style="width:30px; height:30px; object-fit:contain;"></div>
                     <div>
                         <div class="contact-label">Adresse</div>
                         <div class="contact-value">Complexe Daemon 14 rue des Serveurs</div>

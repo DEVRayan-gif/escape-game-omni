@@ -17,8 +17,9 @@ function creer() {
         exit;
     }
 
-    $nom_equipe = trim($_POST['nom_equipe'] ?? '');
-    $emails     = $_POST['membres'] ?? [];
+    $nom_equipe  = trim($_POST['nom_equipe'] ?? '');
+    $emails      = $_POST['membres'] ?? [];
+    $id_creneau  = $_POST['creneau'] ?? null; // ajoute ça
 
     if (empty($nom_equipe)) {
         $_SESSION['erreur'] = "Le nom de l'équipe est obligatoire.";
@@ -26,15 +27,14 @@ function creer() {
         exit;
     }
 
-    if (count($emails) < 1 || count($emails) > 5) {
-        $_SESSION['erreur'] = "Vous devez ajouter entre 1 et 5 coéquipiers.";
-        header('Location: /equipe');
-        exit;
-    }
-
     try {
         $id_equipe = creerEquipe($nom_equipe);
         rejoindreEquipe($_SESSION['user_id'], $id_equipe);
+
+        // Lie le créneau à l'équipe
+        if ($id_creneau) {
+            lierCreneauEquipe($id_creneau, $id_equipe);
+        }
 
         foreach ($emails as $email) {
             $email = trim($email);

@@ -67,3 +67,12 @@ function getUserByEmailForEquipe($email) {
     $stmt->execute([$email]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+function lierCreneauEquipe($id_reservation, $id_equipe) {
+    $pdo = new PDO(
+        'mysql:host='.HOST.';dbname='.DBNAME.';charset=utf8mb4',
+        USER, PASSWORD,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+    $stmt = $pdo->prepare("UPDATE RESERVATION SET id_equipe = ? WHERE id_reservation = ?");
+    $stmt->execute([$id_equipe, $id_reservation]);
+}

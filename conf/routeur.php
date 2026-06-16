@@ -5,24 +5,18 @@ require_once('/var/www/sae202-event/conf/conf.inc.php');
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $items = explode('/', $path);
 
-
 if (empty($items[1])) {
     $controller = 'accueil';
 } else {
-    $controller = str_replace('.php', '', $items[1]); // déplacé ici
-}
-
-if ($controller === 'gestion') {
-    $controller = 'admin';
+    $controller = str_replace('.php', '', $items[1]);
 }
 
 if (empty($items[2])) {
     $action = 'index';
 } else {
-    $action = $items[2];
+    $action = str_replace('.php', '', $items[2]);
 }
 
-// Cas spécial : connexion admin avec classe
 if ($controller === 'connexion' && $action === 'validation_connexion_admin') {
     require_once('/var/www/sae202-event/controller/connexion_admin_controller.php');
     $c = new ConnexionAdminController();
@@ -31,9 +25,13 @@ if ($controller === 'connexion' && $action === 'validation_connexion_admin') {
 }
 
 if ($controller === 'connexion' && $action === 'admin') {
-    require_once('/var/www/sae202-event/controller/connexion_admin_controller.php');
-    // affiche la vue directement
     include('/var/www/sae202-event/admin/connexion_admin.php');
+    exit;
+}
+
+if ($controller === 'gestion') {
+    require_once('/var/www/sae202-event/controller/admin_controller.php');
+    $action();
     exit;
 }
 

@@ -28,7 +28,7 @@
     </div>
     <div class="footer-bottom">
         <span class="footer-bottom-left">// OMNI SYSTEM PROTOCOLE ZERO</span>
-        <span class="footer-bottom-center"><a href="/mentions_legales">MENTIONS LEGALES</a></span>
+        <span class="footer-bottom-center"><a href="/mention_legale">MENTIONS LEGALES</a></span>
         <span class="footer-bottom-right">SI VOUS LISEZ CECI, VOUS AVEZ ENCORE UNE CHANCE</span>
     </div>
 </footer>

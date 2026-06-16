@@ -66,7 +66,7 @@
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-top">
-                    <div class="service-icon">🏠</div>
+                    <div class="service-icon"><img src="/view/images/pictogramme maison omni 1.svg" alt="pictoconept1" style="width:50px; height:50px; object-fit:contain;"></div>
                     <div>
                         <div class="service-title">Hébergement</div>
                         <div class="service-desc">Pour les groupes venus de loin, nous proposons des nuitées partenaires à proximité immédiate du complexe, dans le thème de l'aventure.</div>
@@ -76,7 +76,7 @@
             </div>
             <div class="service-card">
                 <div class="service-top">
-                    <div class="service-icon">🍽️</div>
+                    <div class="service-icon"><img src="/view/images/pictogramme repas omni 1.svg" alt="pictoconept2" style="width:50px; height:50px; object-fit:contain;"></div>
                     <div>
                         <div class="service-title">Repas</div>
                         <div class="service-desc">Formule restauration avant ou après la mission, au bar à thème du complexe. Régimes particuliers (végétarien, sans gluten, allergies) pris en charge sur demande.</div>
@@ -86,7 +86,7 @@
             </div>
             <div class="service-card">
                 <div class="service-top">
-                    <div class="service-icon">🎧</div>
+                    <div class="service-icon"><img src="/view/images/pictogramme briefing omni 1.svg" alt="pictoconept3" style="width:50px; height:50px; object-fit:contain;"></div>
                     <div>
                         <div class="service-title">Briefing immersif</div>
                         <div class="service-desc">Accueil par un agent, équipement et briefing scénarisé inclus dans chaque session, pour entrer directement dans le rôle.</div>
@@ -96,7 +96,7 @@
             </div>
             <div class="service-card">
                 <div class="service-top">
-                    <div class="service-icon">📷</div>
+                    <div class="service-icon"><img src="/view/images/pictogramme photo omni 1.svg" alt="pictoconept4" style="width:50px; height:50px; object-fit:contain;"></div>
                     <div>
                         <div class="service-title">Photo souvenir</div>
                         <div class="service-desc">Cliché d'équipe « survivants du Protocole Zéro » et accès à votre temps de résolution, remis en fin de partie.</div>

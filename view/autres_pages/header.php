@@ -1,6 +1,14 @@
 <nav>
+
+   <button class="burger" id="burger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
     <a href="/accueil" class="nav-logo"> <img src="/view/images/OMNI_moyen_rouge-blanc.svg" alt="OMNI" height="40"> </a>
-    <ul class="nav-links">
+
+  <ul class="nav-links" id="nav-links">
         <li><a href="/accueil">Accueil</a></li>
         <li><a href="/concept">Concept</a></li>
         <li><a href="/info_pratique">Infos pratiques</a></li>
@@ -27,19 +35,29 @@
     <?php endif; ?>
 </div>
 </nav>
-
 <script>
-    const profilBtn = document.getElementById('profil-btn');
+// Burger
+const burgerBtn = document.getElementById('burger-btn');
+const navLinks = document.getElementById('nav-links');
+
+burgerBtn.addEventListener('click', () => {
+    burgerBtn.classList.toggle('open');
+    navLinks.classList.toggle('open');
+});
+
+// Profil menu
+const profilBtn = document.getElementById('profil-btn');
 const profilMenu = document.getElementById('profil-menu');
 
-profilBtn.addEventListener('click', () => {
-    profilMenu.classList.toggle('open');
-});
+if (profilBtn) {
+    profilBtn.addEventListener('click', () => {
+        profilMenu.classList.toggle('open');
+    });
 
-// Fermer si on clique ailleurs
-document.addEventListener('click', (e) => {
-    if (!profilBtn.contains(e.target) && !profilMenu.contains(e.target)) {
-        profilMenu.classList.remove('open');
-    }
-});
+    document.addEventListener('click', (e) => {
+        if (!profilBtn.contains(e.target) && !profilMenu.contains(e.target)) {
+            profilMenu.classList.remove('open');
+        }
+    });
+}
 </script>
