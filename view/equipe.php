@@ -49,17 +49,6 @@
                         <label>NOM DE L'ÉQUIPE <span class="required">*</span></label>
                         <input type="text" name="nom_equipe" placeholder="ex: Les briseurs de Protocole" required>
                     </div>
-                    <div class="form-group">
-                        <label>CRÉNEAU CHOISI <span class="required">*</span></label>
-                        <select name="creneau">
-                            <option value="">-- Sélectionnez un créneau --</option>
-                            <?php foreach ($creneaux as $c) : ?>
-                                <option value="<?= $c['id_reservation'] ?>">
-                                    <?= date('d/m/Y H:i', strtotime($c['date_heure_session'])) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
                 </div>
             </div>
         </div>
@@ -89,7 +78,12 @@
                 <button type="button" class="add-membre-btn" onclick="ajouterMembre()">+ AJOUTER UN MEMBRE</button>
                 <p class="membres-hint">// 2 à 6 joueurs · chaque membre reçoit son brief par email (+ 16 ans requis)</p>
             </div>
-        </div>
+</div>
+
+<div class="form-group">
+    <label>CODE DE RÉSERVATION <span class="required">*</span></label>
+    <input type="text" name="code_reservation" placeholder="ex: OMNI-E4441C" required>
+</div>
 
         <button type="submit" class="equipe-submit-btn">S'INSCRIRE</button>
 

@@ -76,3 +76,20 @@ function lierCreneauEquipe($id_reservation, $id_equipe) {
     $stmt = $pdo->prepare("UPDATE RESERVATION SET id_equipe = ? WHERE id_reservation = ?");
     $stmt->execute([$id_equipe, $id_reservation]);
 }
+function verifierCodeReservation($code) {
+    $pdo = new PDO(
+        'mysql:host='.HOST.';dbname='.DBNAME.';charset=utf8mb4',
+        USER, PASSWORD,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+
+    $stmt = $pdo->prepare("
+        SELECT * FROM RESERVATION 
+        WHERE code_reservation = ?
+        AND statut_reservation = 'confirmee'
+        AND id_equipe IS NULL
+    ");
+
+    $stmt->execute([$code]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}

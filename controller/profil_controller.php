@@ -7,6 +7,7 @@ function index() {
         exit;
     }
     $user = getUserById($_SESSION['user_id']);
+    $score = getScoreByUserId($_SESSION['user_id']); 
     include('/var/www/sae202-event/view/profil.php');
 }
 

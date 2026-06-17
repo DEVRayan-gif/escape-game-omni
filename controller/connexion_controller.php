@@ -79,13 +79,19 @@ function validation_connexion() {
             $_SESSION['user_pseudo'] = $user['pseudo'];
             $_SESSION['user_role']   = $user['role'];
 
-            if ($user['role'] === 'admin') {
-                header('Location: /admin');
-            } else {
-                $_SESSION['succes'] = "Bienvenue " . $user['pseudo'] . " !";
-                header('Location: /accueil');
-            }
-            exit;
+          if ($user['role'] === 'admin') {
+    header('Location: /gestion');
+} else {
+    $_SESSION['succes'] = "Bienvenue " . $user['pseudo'] . " !";
+    if (isset($_SESSION['redirect_after_login'])) {
+        $redirect = $_SESSION['redirect_after_login'];
+        unset($_SESSION['redirect_after_login']);
+        header('Location: ' . $redirect);
+    } else {
+        header('Location: /accueil');
+    }
+}
+exit;
         } else {
             $_SESSION['erreur'] = "Email ou mot de passe incorrect.";
             header('Location: /connexion');

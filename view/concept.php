@@ -86,7 +86,7 @@
             </div>
             <div class="service-card">
                 <div class="service-top">
-                    <div class="service-icon"><img src="/view/images/pictogramme briefing omni 1.svg" alt="pictoconept3" style="width:50px; height:50px; object-fit:contain;"></div>
+                    <div class="service-icon"><img src="/view/images/pictogramme1_3.svg" alt="pictoconept3" style="width:50px; height:50px; object-fit:contain;"></div>
                     <div>
                         <div class="service-title">Briefing immersif</div>
                         <div class="service-desc">Accueil par un agent, équipement et briefing scénarisé inclus dans chaque session, pour entrer directement dans le rôle.</div>

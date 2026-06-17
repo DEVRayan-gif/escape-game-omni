@@ -1,6 +1,6 @@
 <nav>
 
-   <button class="burger" id="burger-btn">
+   <button class="burger" id="burger-btn" aria-label="menu">
         <span></span>
         <span></span>
         <span></span>

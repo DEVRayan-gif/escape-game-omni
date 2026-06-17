@@ -1,5 +1,5 @@
 :root {
-            --rouge: #e01a1a;
+            --rouge: #FF0000;
             --rouge-glow: rgba(224,26,26,0.5);
             --noir: #0a0a0f;
             --noir-2: #111118;
@@ -1692,6 +1692,13 @@ select {
     margin-top: 8px;
 }
 
+.alert-erreur{
+    color: var(--rouge);
+}
+.alert-succes{
+    color:#3ecf6a;
+}
+
 .admin-login-btn:hover {
     background-color: #4ec9c9;
     color: #0a0a0a;
@@ -2507,3 +2514,740 @@ body:has(.bo-wrap) {
         letter-spacing: 0.15em;
     }
 }
+
+/* ======= PAGE RÉSERVATION ======= */
+.resa-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 2rem;
+    align-items: start;
+}
+
+.resa-bloc {
+    border: 1px solid #252523;
+    background: #111110;
+}
+
+.resa-bloc-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #252523;
+}
+
+.resa-bloc-header h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.resa-icon { margin-left: auto; font-size: 1.2rem; }
+
+.resa-bloc-body { padding: 1.5rem; }
+
+.resa-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: #666;
+    letter-spacing: .12em;
+    margin-bottom: 1rem;
+}
+
+/* DATES */
+.resa-dates-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resa-nav {
+    background: #1a1a18;
+    border: 1px solid #333;
+    color: white;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s;
+}
+
+.resa-nav:hover { background: #cc2222; }
+
+.resa-dates {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+    overflow: hidden;
+}
+
+.resa-date-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #252523;
+    background: #0d0d0b;
+    cursor: pointer;
+    flex: 1;
+    transition: border-color .15s;
+    gap: 2px;
+}
+
+.resa-date-card:hover { border-color: #00D2FF; }
+.resa-date-card.selected { border-color: #00D2FF; background: #0a1a1f; }
+
+.rd-jour {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.rd-num {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00D2FF;
+}
+
+.rd-mois {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    color: #444;
+}
+
+/* CRÉNEAUX */
+.resa-creneaux {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.resa-creneau {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #252523;
+    background: #0d0d0b;
+    cursor: pointer;
+    transition: border-color .15s;
+    min-width: 90px;
+    gap: 4px;
+}
+
+.resa-creneau:hover:not(:disabled) { border-color: #00D2FF; }
+.resa-creneau.selected { border-color: #00D2FF; background: #0a1a1f; }
+.resa-creneau:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.cr-heure {
+    font-family: 'segment7', monospace;
+    font-size: 1.3rem;
+    color: #00D2FF;
+    letter-spacing: .05em;
+}
+
+.cr-statut {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: .12em;
+}
+
+.cr-statut.libre { color: #3ecf6a; }
+.cr-statut.complet { color: #cc2222; }
+
+/* COUNTER */
+.resa-joueurs-wrap {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.resa-counter {
+    display: flex;
+    align-items: center;
+    background: #0d0d0b;
+    border: 1px solid #252523;
+}
+
+.resa-counter-btn {
+    background: #1a1a18;
+    border: none;
+    color: white;
+    width: 50px;
+    height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.resa-counter-btn:hover { background: #cc2222; }
+
+.resa-counter-val {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    width: 80px;
+    text-align: center;
+}
+
+.resa-counter-info {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.resa-counter-info strong { color: white; }
+
+/* RECAP */
+.resa-recap {
+    background: #111110;
+    border: 1px solid #252523;
+    border-left: 3px solid #00D2FF;
+    padding: 1.5rem;
+    position: sticky;
+    top: 80px;
+}
+.style-h2 {
+    font-size: 2.7em;    
+}
+
+.resa-recap-eyebrow {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: #00D2FF;
+    letter-spacing: .12em;
+    margin-bottom: 0.5rem;
+}
+
+.resa-recap-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: white;
+    margin: 0 0 0.8rem;
+}
+
+.resa-recap-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.resa-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: #666;
+    border: 1px solid #252523;
+    padding: 3px 8px;
+    letter-spacing: .08em;
+}
+
+.resa-recap-lines {
+    border-top: 1px solid #1e1e1c;
+    border-bottom: 1px solid #1e1e1c;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.resa-recap-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rcl-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: #444;
+    letter-spacing: .12em;
+}
+
+.rcl-val {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #aaa;
+}
+
+.resa-recap-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.resa-recap-total span:first-child {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: #444;
+    letter-spacing: .12em;
+}
+
+.resa-total-val {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+}
+
+.resa-pay-btn {
+    width: 100%;
+    background: var(--rouge);
+    border: none;
+    color: white;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.resa-pay-btn:hover { background: #b01515; }
+/* ======= PAGE PAIEMENT ======= */
+.paiement-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-top: 2rem;
+}
+
+.paiement-recap {
+    background: #111110;
+    border: 1px solid #252523;
+    border-left: 3px solid #00D2FF;
+    padding: 1.5rem;
+    position: sticky;
+    top: 80px;
+}
+
+.paiement-form-wrap {
+    background: #111110;
+    border: 1px solid #252523;
+    padding: 2rem;
+}
+
+.paiement-card-mock {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.pcm-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: #444;
+    letter-spacing: .15em;
+    margin-bottom: 4px;
+}
+
+.pcm-input {
+    width: 100%;
+    background: #0d0d0b;
+    border: 1px solid #252523;
+    color: white;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color .2s;
+}
+
+.pcm-input:focus { border-color: #00D2FF; }
+
+.pcm-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.paiement-mention {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: #333;
+    letter-spacing: .08em;
+    margin-top: 1rem;
+}
+/* ======= PAGE CONFIRMATION ======= */
+.confirm-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(62, 207, 106, 0.1);
+    border: 2px solid #3ecf6a;
+    color: #3ecf6a;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.confirm-code {
+    background: #111110;
+    border: 1px solid #252523;
+    border-left: 3px solid #3ecf6a;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.confirm-code-val {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: .15em;
+    margin: 0.5rem 0;
+}
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: -300px;  /* caché à gauche au départ */
+    background-color: #2ecc71;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    z-index: 9999;
+    transition: left 0.5s ease;
+}
+.toast.show {
+    left: 20px;  /* apparait en bas à gauche */
+}
+        /* ======= PAGE PROFIL ======= */
+        .profil-page-wrap {
+            padding: 2.5rem 3rem 5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .profil-breadcrumb {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blanc-dim);
+            margin-bottom: 1.5rem;
+        }
+        .profil-breadcrumb a { color: var(--rouge); text-decoration: none; }
+        .profil-breadcrumb span { margin: 0 0.5rem; }
+
+        /* BANNER */
+        .profil-banner {
+            background: var(--gris);
+            border: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .profil-banner-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #00D2FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .profil-banner-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .profil-banner-pseudo {
+            font-family: 'Nasalization', 'Orbitron', monospace;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 900;
+            color: var(--blanc);
+            letter-spacing: 0.08em;
+            margin-bottom: 0.3rem;
+        }
+        .profil-banner-equipe {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--blanc-dim);
+            letter-spacing: 0.1em;
+        }
+        .profil-banner-badge {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: #3ecf6a;
+            border: 1px solid #3ecf6a;
+            padding: 0.2rem 0.6rem;
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+        }
+
+        /* SECTION HEADER */
+        .profil-s-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .profil-s-badge {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--blanc);
+            background: var(--rouge);
+            padding: 0.15rem 0.5rem;
+            flex-shrink: 0;
+        }
+        .profil-s-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blanc);
+            letter-spacing: 0.05em;
+            margin: 0;
+        }
+        .profil-s-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--rouge) 0%, transparent 80%);
+        }
+
+        /* MAIN GRID */
+        .profil-main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: start;
+        }
+
+        /* FORM PANEL */
+        .profil-form-panel {
+            background: var(--gris);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 2rem;
+        }
+        .profil-field-label {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blanc-dim);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+        .profil-input {
+            width: 100%;
+            background: var(--noir-2);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--blanc);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            padding: 0.7rem 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            margin-bottom: 1.2rem;
+        }
+        .profil-input:focus { border-color: rgba(224,26,26,0.5); }
+        .profil-input::placeholder { color: var(--blanc-dim); font-size: 0.85rem; }
+        .profil-input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .profil-btn-enregistrer {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blanc);
+            background: var(--noir-2);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.75rem 1.8rem;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .profil-btn-enregistrer:hover {
+            border-color: var(--blanc);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* SCORE PANEL */
+        .profil-score-panel {
+            background: var(--gris);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 200px;
+        }
+        .profil-score-time {
+            font-family: 'segment7', monospace;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            color: var(--rouge);
+            letter-spacing: 0.08em;
+            text-shadow: 0 0 30px rgba(224,26,26,0.7);
+            line-height: 1;
+            margin-bottom: 0.8rem;
+        }
+        .profil-score-label {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            color: var(--blanc-dim);
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+        .profil-score-desc {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--blanc-dim);
+            margin-bottom: 1.2rem;
+        }
+        .profil-score-rang {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            color: var(--blanc);
+        }
+        .profil-score-rang .rang-val { color: #00D2FF; font-weight: 900; }
+        .profil-no-score {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--blanc-dim);
+            letter-spacing: 0.1em;
+        }
+
+        /* WATERMARK */
+        .profil-watermark {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+        }
+        .profil-watermark img { width: 90px; opacity: 0.85; }
+
+        /* AVIS PANEL */
+        .profil-avis-panel {
+            background: var(--gris);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 2rem;
+        }
+        .profil-note-label {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blanc-dim);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+        .profil-stars-wrap {
+            display: flex;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+        .profil-star {
+            font-size: 1.5rem;
+            color: var(--blanc-dim);
+            cursor: pointer;
+            transition: color 0.15s;
+            line-height: 1;
+        }
+        .profil-star.active { color: var(--rouge); }
+        .profil-avis-label {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blanc-dim);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+        .profil-textarea {
+            width: 100%;
+            background: var(--noir-2);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--blanc);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            padding: 0.8rem 1rem;
+            outline: none;
+            resize: vertical;
+            height: 120px;
+            transition: border-color 0.2s;
+            margin-bottom: 0.8rem;
+        }
+        .profil-textarea:focus { border-color: rgba(224,26,26,0.5); }
+        .profil-textarea::placeholder { color: var(--blanc-dim); font-size: 0.85rem; }
+        .profil-avis-hint {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--blanc-dim);
+            margin-bottom: 1rem;
+        }
+        .profil-btn-publier {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blanc);
+            background: var(--noir-2);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.75rem 1.8rem;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .profil-btn-publier:hover {
+            border-color: var(--blanc);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* ALERTS */
+        .profil-alert-err {
+            background: rgba(224,26,26,0.1);
+            border: 1px solid var(--rouge);
+            color: #ff6b6b;
+            padding: 0.75rem 1rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .profil-alert-ok {
+            background: rgba(62,207,106,0.1);
+            border: 1px solid #3ecf6a;
+            color: #3ecf6a;
+            padding: 0.75rem 1rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .profil-page-wrap { padding: 2rem 1.5rem 4rem; }
+            .profil-main-grid { grid-template-columns: 1fr; }
+            .profil-input-row { grid-template-columns: 1fr; }
+        }

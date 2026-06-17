@@ -14,7 +14,7 @@
  
 <?php include '/var/www/sae202-event/view/autres_pages/header.php'; ?>
  
-<!-- HERO -->
+<main>
 <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-corner-tr"></div>
@@ -63,7 +63,7 @@
     </svg>
 
     <!-- Logo binaire qui apparait après le glitch -->
-    <img src="/view/images/pictogramme LOGO OMNI CODE BINAIRE 1.svg" class="binary-logo" alt="binary">
+    <img src="/view/images/pictogramme_LOGO_OMNI_CODE_BINAIRE_1.svg" class="binary-logo" alt="binary">
 </div>
 </section>
  
@@ -71,7 +71,7 @@
 <section class="presentation">
     <p class="section-eyebrow">Présentation</p>
     <div class="section-divider"></div>
-    <h2 class="section-title">BIENVENUE DANS <span class="accent">LE COMPLEXE</span></h2>
+    <h2 class="section-title style-h2">BIENVENUE DANS <span class="accent">LE COMPLEXE</span></h2>
  
     <div class="presentation-grid">
         <div class="presentation-text">
@@ -83,10 +83,10 @@
             </ul>
         </div>
         <div class="presentation-images">
-            <img src="/view/images/photo-batimentagence.jpg" alt="image 1" class="img-big" style="width:100%; object-fit:cover;">
+            <img src="/view/images/photo-batimentagence.webp" alt="image 1" class="img-big" style="width:100%; object-fit:cover;">
             <div class="img-row">
-                <div class="img-placeholder img-small"> <img src="/view/images/photo2.jpg" alt="image 2" class="img-small" style="width:100%; object-fit:cover;"></div>
-                <div class="img-placeholder img-small"><img src="/view/images/photo3.jpg" alt="image 3" class="img-small" style="width:100%; object-fit:cover;"></div>
+                <div class="img-placeholder img-small"> <img src="/view/images/photo2.webp" alt="image 2" class="img-small" style="width:100%; object-fit:cover;"></div>
+                <div class="img-placeholder img-small"><img src="/view/images/photo3.webp" alt="image 3" class="img-small" style="width:100%; object-fit:cover;"></div>
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@
 <section class="stats">
     <p class="section-eyebrow">OMNI</p>
     <div class="section-divider"></div>
-    <h2 class="section-title">UNE NUIT POUR <span class="accent">REPRENDRE LE<br>CONTRÔLE</span></h2>
+    <h3 class="section-title style-h2">UNE NUIT POUR <span class="accent">REPRENDRE LE<br>CONTRÔLE</span></h3>
 
     <div class="stats-grid">
         <div class="stat-card">
@@ -126,23 +126,23 @@
 <section class="regles">
     <p class="section-eyebrow">Protocole de survie</p>
     <div class="section-divider"></div>
-    <h2 class="section-title">LES <span class="accent">RÈGLES</span></h2>
+    <h4 class="section-title style-h2">LES <span class="accent">RÈGLES</span></h4>
  
     <div class="regles-grid">
         <div class="regle-card">
-            <div class="regle-icon"><img src="/view/images/pictogramme telephone stop omilab 2.svg" alt="picto1" style="width:40px; height:40px; object-fit:contain;"></div>
+            <div class="regle-icon"><img src="/view/images/pictogramme1.svg" alt="picto1" style="width:40px; height:40px; object-fit:contain;"></div>
             <div class="regle-text">téléphone interdit</div>
         </div>
         <div class="regle-card">
-            <div class="regle-icon"><img src="/view/images/pictogramme ordi cassé omilab 1.svg" alt="picto1" style="width:40px; height:40px; object-fit:contain;"></div>
+            <div class="regle-icon"><img src="/view/images/pictogramme_2.svg" alt="picto1" style="width:40px; height:40px; object-fit:contain;"></div>
             <div class="regle-text">Ne forcez rien</div>
         </div>
         <div class="regle-card">
-            <div class="regle-icon"><img src="/view/images/Pictogramme cadenas omnilab svg 1.svg" alt="picto2" style="width:30px; height:30px; object-fit:contain;"></div>
+            <div class="regle-icon"><img src="/view/images/pictogramme_3.svg" alt="picto2" style="width:40px; height:40px; object-fit:contain;"></div>
             <div class="regle-text">3 indices maximum</div>
         </div>
         <div class="regle-card">
-            <div class="regle-icon"><img src="/view/images/pictogramme équipe omilab 1.svg" alt="picto3" style="width:40px; height:40px; object-fit:contain;"></div>
+            <div class="regle-icon"><img src="/view/images/pictogramme_4.svg" alt="picto3" style="width:40px; height:40px; object-fit:contain;"></div>
             <div class="regle-text">Restez en équipe</div>
         </div>
     </div>
@@ -152,7 +152,7 @@
 <section class="temoignages">
     <p class="section-eyebrow">Rapport des survivants</p>
     <div class="section-divider"></div>
-    <h2 class="section-title">ILS ONT <span class="accent">AFFRONTÉS OMNI</span></h2>
+    <h5 class="section-title style-h2">ILS ONT <span class="accent">AFFRONTÉS OMNI</span></h5>
  
     <div class="temoignages-grid">
         <div class="temoignage-card">
@@ -196,23 +196,7 @@
 <?php unset($_SESSION['succes']); ?>
 <?php endif; ?>
 
-<style>
-.toast {
-    position: fixed;
-    bottom: 20px;
-    left: -300px;  /* caché à gauche au départ */
-    background-color: #2ecc71;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    font-size: 16px;
-    z-index: 9999;
-    transition: left 0.5s ease;
-}
-.toast.show {
-    left: 20px;  /* apparait en bas à gauche */
-}
-</style>
+</main>
 
 <script>
     const toast = document.getElementById('toast');

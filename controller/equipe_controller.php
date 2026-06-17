@@ -31,10 +31,9 @@ function creer() {
         $id_equipe = creerEquipe($nom_equipe);
         rejoindreEquipe($_SESSION['user_id'], $id_equipe);
 
+
         // Lie le créneau à l'équipe
-        if ($id_creneau) {
-            lierCreneauEquipe($id_creneau, $id_equipe);
-        }
+      lierCreneauEquipe($reservation['id_reservation'], $id_equipe);
 
         foreach ($emails as $email) {
             $email = trim($email);
@@ -46,6 +45,22 @@ function creer() {
             }
         }
 
+        $code = trim($_POST['code_reservation'] ?? '');
+
+if (empty($code)) {
+    $_SESSION['erreur'] = "Le code de réservation est obligatoire.";
+    header('Location: /equipe');
+    exit;
+}
+
+$reservation = verifierCodeReservation($code);
+
+if (!$reservation) {
+    $_SESSION['erreur'] = "Code invalide ou déjà utilisé.";
+    header('Location: /equipe');
+    exit;
+}
+
         $_SESSION['succes'] = "Équipe créée avec succès !";
         header('Location: /equipe');
         exit;
@@ -55,4 +70,5 @@ function creer() {
         header('Location: /equipe');
         exit;
     }
+
 }

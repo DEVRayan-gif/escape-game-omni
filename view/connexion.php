@@ -13,6 +13,13 @@
 <body>
  
 <?php include '/var/www/sae202-event/view/autres_pages/header.php'; ?>
+
+<?php if (isset($_SESSION['erreur'])) : ?>
+    <div style="color:#00D2FF; font-family:'Share Tech Mono',monospace; font-size:0.8rem; letter-spacing:.1em; margin-bottom:1rem;">
+        // <?= htmlspecialchars($_SESSION['erreur']) ?>
+    </div>
+    <?php unset($_SESSION['erreur']); ?>
+<?php endif; ?>
  
 <div id="contenu" class="inscription-wrap">
    <h1>Connexion</h1>
