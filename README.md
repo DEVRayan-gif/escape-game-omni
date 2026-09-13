@@ -95,7 +95,7 @@ Nous étions **4 membres** dans l'équipe, chacun avec un rôle spécifique :
 
 ## Auteur
 
-Projet réalisé par : **Rayan (Ryan)** — développeur principal du site OMNI – Protocole Zéro
+Projet réalisé par :Rayan Chraibi — développeur principal du site OMNI – Protocole Zéro
 
 ## Remarque
 
