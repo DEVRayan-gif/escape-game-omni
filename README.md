@@ -5,6 +5,8 @@ Il permet de découvrir le concept du jeu, consulter les infos pratiques, réser
 
 Le projet a été réalisé avec **HTML, CSS, JavaScript, PHP et MySQL** en utilisant une architecture structurée (MVC + MLD).
 
+Au-delà du développement web, la SAE consistait à commercialiser un service complet : conception du site, stratégie de communication, identité d'agence et gestion budgétaire, en plus de l'aspect purement technique.
+
 > Projet réalisé dans le cadre d'une SAE, **en groupe de 4 personnes**, en première année.
 
 ## Fonctionnalités du site
