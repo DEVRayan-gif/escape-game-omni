@@ -54,6 +54,7 @@ Le site contient plusieurs pages principales, accessibles publiquement, ainsi qu
 * Figma (maquettes et design du site)
 * Architecture MVC
 * Sécurisation de l'accès admin via .htaccess
+* Design responsive (compatibilité mobile et desktop)
 
 ## Architecture du projet
 
